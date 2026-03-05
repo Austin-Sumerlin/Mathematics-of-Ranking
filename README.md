@@ -25,7 +25,7 @@ Computes **Average Shortest Path Length (SPL)** metrics between teams using game
 #### Inputs
 
 - **Games (.txt)**  
-  List of games played between teams.
+  List of games played.
 
 - **Teams (.txt)**  
   List of teams included in the analysis.
@@ -50,14 +50,14 @@ Evaluates tournament brackets and matchup probabilities using SPL rankings and c
 #### Required Inputs
 
 - **Teams (.txt)** – List of teams  
-- **Games (.txt)** – Historical game results  
+- **Games (.txt)** – List of game results  
 - **Bracket Matchups (.csv)** – Tournament bracket structure  
 - **SPL Dictionary** – Precomputed SPL values  
 - **Tournament Year** – Year of the bracket being evaluated
 
 #### Optional Inputs
 
-- **Segment Weighting** – Adjust weighting of ranking segments  
+- **Segment Weighting** – Adjust weighting of time ranking segments  
 - **Probability Sharpness** – Controls probability curve steepness  
   - Recommended value: **~6.15**
 - **Closer-than-Seeding Threshold** – Flag games closer than seeding suggests  
@@ -68,29 +68,11 @@ Evaluates tournament brackets and matchup probabilities using SPL rankings and c
 #### Outputs
 
 - **Raw Rankings** – Ranking of all teams based on SPL metrics  
-- **Round of 64 Matchups** – Initial tournament matchups  
+- **Round of 64 Matchups** – Initial tournament matchups and predictions  
 - **Upset Radar** – Games with high upset potential  
 - **Closer-than-Seeding Games** – Matchups projected to be tighter than expected  
 - **More-One-Sided Games** – Matchups projected to be more lopsided than expected  
-- **Head-to-Head Probabilities** – Win probabilities for each matchup  
+- **Head-to-Head Probabilities** – Win probabilities for any matchup between any two teams
 - **Full Bracket with Probabilities** – Complete tournament bracket with advancement probabilities
 
 ---
-
-## Project Structure (Example)
-
-```text
-Mathematics-of-Ranking/
-│
-├── AvgSPL/
-│   ├── teams.txt
-│   ├── games.txt
-│   └── output/
-│
-├── BracketComparison/
-│   ├── bracket.csv
-│   ├── spl_dictionary.json
-│   └── outputs/
-│
-└── streamlit_app.py
-```
